@@ -1,5 +1,13 @@
 import os
 
+def limpar_lista(x):
+    x = x
+    x = [i.replace("\n","") for i in x]
+    x = [i.replace(" ","") for i in x] #Retira os espaços
+    x = [i.replace(",","") for i in x] #Retira as vírgulas
+    x = [i.replace(":","") for i in x] #Retira os dois pontos
+    return x
+
 with open("pls.txt") as f: #Abre o arquivo e se refere ao mesmo como "f"
     s = f.readlines() #Adiciona a uma lista("s") todas as linhas de texto do documento
     s = [i.replace("\n","") for i in s] #Retira as quebras de linha
@@ -25,7 +33,10 @@ for i in range(x):
 
 print(l3)
 for i in range(9):
-    print('',l1)
+    if i == 3 or i == 6:
+        print('',l2)
+    else:
+        print('',l1)
     for j in range(9):
         if j == 0:
             print('{}|| {} |'.format(i+1,matriz[i][j]),end ='')
@@ -41,3 +52,53 @@ for i in range(9):
     if i == 8:
         print('',l1)
 print(l3)
+
+lista_entradas = [] #Recebe as entradas do jogador
+val = True #Validador de continuidade das jogadas
+xx = 0
+
+while val == True: #Loop de entrada das jogadas
+    entrada = input('Entre sua jogada: ')
+    entrada_correta = entrada.upper()
+    if len(entrada) < 10:
+        lista_entradas.append(entrada_correta) #Adiciona todas as jogadas a lista
+        val = True #Continua a receber entradas
+        lista_entradas = [i.replace(",","") for i in lista_entradas] #Retira as virgulas
+        lista_entradas = [i.replace(":","") for i in lista_entradas] #Retira os dois pontos
+        lista_entradas = [i.replace(" ","") for i in lista_entradas] #Retria os espacos # Agora a entrada esta no Formato X00
+        p = len(lista_entradas) #Recebe o numero de elementos da lista de entrada
+        for z in range(p): #Checagem para reconhecer onde a entrada vai ser colocada
+            g = lista_entradas[z] #Recebe o elemento em questao a ser analisado
+            o = l4.find(g[0]) #Procura a letra que foi entrada
+            q = int(g[1]) - 1 #Procura a linha que vai ser colocada
+            matriz[q][o]= int(g[2]) #Substitui o valor que foi selecionado na posicao indicada acima
+
+        print(l3)
+        for i in range(9):
+            if i == 3 or i == 6:
+                print('',l2)
+            else:
+                print('',l1)
+            for j in range(9):
+                if j == 0:
+                    print('{}|| {} |'.format(i+1,matriz[i][j]),end ='')
+                elif j > 0 and j<8:
+                    if j == 2 or j == 5:
+                        print(' {} ||'.format(matriz[i][j]), end ='')
+                    elif j == 7:
+                        print(' {} |'.format(matriz[i][j]), end ='')
+                    else:
+                        print(' {} |'.format(matriz[i][j]), end ='')
+                else:
+                    print(' {} ||{}'.format(matriz[i][j], i+1))
+            if i == 8:
+                print('',l1)
+        print(l3)
+        
+    
+    else:
+        val = False
+
+
+
+	
