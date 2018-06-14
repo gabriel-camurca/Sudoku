@@ -29,7 +29,7 @@ for i in range(x):
     a = str(a)
     k = l4.find(a[0]) #Procura nas possibilidades de letras(coordenada das colunas) a que foi digitada
     j = int(a[1])-1 #Lê a coordenada das linhas que foi inserida e diminui 1, pois o sudoku vai de 1 até 9 mas a posição é de 0 até 8, com 0 sendo o primeiro elemento e 8 o último
-    matriz[k][j] = int(a[2]) #Adiciona na posição das cooordenadas k(coluna),j(linhas) o valor
+    matriz[j][k] = int(a[2]) #Adiciona na posição das cooordenadas k(coluna),j(linhas) o valor
 
 print(l3)
 for i in range(9):
