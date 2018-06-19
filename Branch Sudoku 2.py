@@ -7,7 +7,58 @@ def limpar_lista(x):
 	x = [i.replace(",","") for i in x] #Retira as vírgulas
 	x = [i.replace(":","") for i in x] #Retira os dois pontos
 	return x
+def matrizquadrantes():
+    listaM = []
+    def elementoemlista(l,y):
+	    l.append(y)
+	    if len(l) == 9:
+	        for z in range(9):
+	            for w in range(z+1,9):
+	                if l[z] == l[w]:
+	                    print("Jogada inválida!")
+	                    l = []
+	                    return
+	        l = []
+	                
+    m = [[0 for i in range(9)] for j in range(9)]
+    for i in range(3):
+        for j in range(3):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
 
+        for j in range(3,6):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+        for j in range(6,9):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+    for i in range(3,6):
+        for j in range(3):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+        for j in range(3,6):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+        for j in range(6,9):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+    for i in range(6,9):
+        for j in range(3):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+
+        for j in range(3,6):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+        for j in range(6,9):
+            m[j][i] = matriz[j][i]
+            elementoemlista(listaM,matriz[i][j])
+    return
 listaValidador0 = [] #Cria varias listas para cada linha da matriz
 listaValidador1 = []
 listaValidador2 = []
@@ -50,7 +101,7 @@ for i in range(x):
 	a = str(a)
 	k = l4.find(a[0]) #Procura nas possibilidades de letras(coordenada das colunas) a que foi digitada
 	j = int(a[1])-1 #Lê a coordenada das linhas que foi inserida e diminui 1, pois o sudoku vai de 1 até 9 mas a posição é de 0 até 8, com 0 sendo o primeiro elemento e 8 o último
-	matriz[k][j] = int(a[2]) #Adiciona na posição das cooordenadas k(coluna),j(linhas) o valor
+	matriz[j][k] = int(a[2]) #Adiciona na posição das cooordenadas k(coluna),j(linhas) o valor
 
 	if k == 0: #Coloca os elementos das linhas da matriz base nas suas respectivas listas
 		listaValidador0.append(a[2])
@@ -154,7 +205,7 @@ while val == True: #Loop de entrada das jogadas
 		elif q == 8:
 			listaValidador8.append(g[2])
 
-		for x in range(len(listaValidador0)): #Comparacao dos valores de cada lista
+		"""for x in range(len(listaValidador0)): #Comparacao dos valores de cada lista
 			for y in range(x+1, (len(listaValidador0))):
 				if listaValidador0[x] == listaValidador0[y]: 
 					booole = True
@@ -198,7 +249,7 @@ while val == True: #Loop de entrada das jogadas
 			for y in range(x+1, (len(listaValidador8))):
 				if listaValidador8[x] == listaValidador8[y]:
 					booole = True
-					listaValidador8.pop()
+					listaValidador8.pop()"""
 
 		#COLUNA VALIDADOR
 		if g[0] == "A": #Analisa em qual coluna o elemento esta e o coloca em sua respectiva lista
@@ -220,7 +271,7 @@ while val == True: #Loop de entrada das jogadas
 		elif g[0] == "I":
 			listaValidadorC8.append(g[2])
 
-		for x in range(len(listaValidadorC0)):
+		"""for x in range(len(listaValidadorC0)):
 			for y in range(x+1, (len(listaValidadorC0))):
 				if listaValidadorC0[x] == listaValidadorC0[y]:
 					booole = True
@@ -264,7 +315,7 @@ while val == True: #Loop de entrada das jogadas
 			for y in range(x+1, (len(listaValidadorC8))):
 				if listaValidadorC8[x] == listaValidadorC8[y]:
 					booole = True
-					listaValidadorC8.pop()
+					listaValidadorC8.pop()"""
 
 		matriz[q][o]= int(g[2]) #Substitui o valor que foi selecionado na posicao indicada acima
 		
@@ -289,7 +340,7 @@ while val == True: #Loop de entrada das jogadas
 			if i == 8:
 				print('',l1)
 		print(l3)
-		
+		matrizquadrantes()
 	
 	else:
 		val = False
