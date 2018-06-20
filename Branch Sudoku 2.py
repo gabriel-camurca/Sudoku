@@ -14,50 +14,51 @@ def matrizquadrantes():
 	    if len(l) == 9:
 	        for z in range(9):
 	            for w in range(z+1,9):
-	                if l[z] == l[w]:
-	                    print("Jogada inválida!")
-	                    l = []
-	                    return
+		                if l[z] == l[w]:
+		                	if l[z] != ' ':
+			                    print("Jogada inválida!")
+			                    
+			                    l = []
+
+			                    return
 	        l = []
 	                
-    m = [[0 for i in range(9)] for j in range(9)]
     for i in range(3):
         for j in range(3):
-            m[j][i] = matriz[j][i]
             elementoemlista(listaM,matriz[i][j])
-
-        for j in range(3,6):
-            m[j][i] = matriz[j][i]
-            elementoemlista(listaM,matriz[i][j])
-
-        for j in range(6,9):
-            m[j][i] = matriz[j][i]
-            elementoemlista(listaM,matriz[i][j])
-
+    listaM = []
     for i in range(3,6):
         for j in range(3):
-            m[j][i] = matriz[j][i]
             elementoemlista(listaM,matriz[i][j])
-
-        for j in range(3,6):
-            m[j][i] = matriz[j][i]
-            elementoemlista(listaM,matriz[i][j])
-
-        for j in range(6,9):
-            m[j][i] = matriz[j][i]
-            elementoemlista(listaM,matriz[i][j])
-
+    listaM = []
     for i in range(6,9):
         for j in range(3):
-            m[j][i] = matriz[j][i]
             elementoemlista(listaM,matriz[i][j])
-
+    listaM = []
+    for i in range(3):
         for j in range(3,6):
-            m[j][i] = matriz[j][i]
             elementoemlista(listaM,matriz[i][j])
+    listaM = []
+    for i in range(3,6):
+        for j in range(3,6):
+            elementoemlista(listaM,matriz[i][j])
+    listaM = []
+    for i in range(6,9):
+        for j in range(3,6):
+            elementoemlista(listaM,matriz[i][j])
+    listaM = []
+    for i in range(3):
         for j in range(6,9):
-            m[j][i] = matriz[j][i]
             elementoemlista(listaM,matriz[i][j])
+    listaM = []
+    for i in range(3,6):
+        for j in range(6,9):
+            elementoemlista(listaM,matriz[i][j])
+    listaM = []
+    for i in range(6,9):
+        for j in range(6,9):
+            elementoemlista(listaM,matriz[i][j])
+    listaM = []
     return
 listaValidador0 = [] #Cria varias listas para cada linha da matriz
 listaValidador1 = []
@@ -94,7 +95,7 @@ l4 = 'ABCDEFGHI'
 #---------------#
 
 f.close #Fecha o arquivo
-matriz = [[0 for i in range(9)] for j in range(9)] #Cria uma matriz 9x9 de 0s
+matriz = [[' ' for i in range(9)] for j in range(9)] #Cria uma matriz 9x9 de 0s
 x = len(s) #Lê a quantidade de elementos da lista contendo todo o texto do arquivo
 for i in range(x):
 	a = s[i] #Armazena o valor o "i-ésimo" elemento da lista
