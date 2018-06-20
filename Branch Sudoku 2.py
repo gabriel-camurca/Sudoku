@@ -8,58 +8,28 @@ def limpar_lista(x):
 	x = [i.replace(":","") for i in x] #Retira os dois pontos
 	return x
 def matrizquadrantes():
-    listaM = []
-    def elementoemlista(l,y):
-	    l.append(y)
-	    if len(l) == 9:
-	        for z in range(9):
-	            for w in range(z+1,9):
-		                if l[z] == l[w]:
-		                	if l[z] != ' ':
-			                    print("Jogada inválida!")
-			                    
-			                    l = []
+	listaM = []
+	def elementoemlista(l,y):
+		l.append(y)
+		if len(l) == 9:
+			for z in range(9):
+				for w in range(z+1,9):
+						if l[z] == l[w]:
+							if l[z] != ' ':
+								print("Jogada inválida!")
+								
+								l = []
 
-			                    return
-	        l = []
-	                
-    for i in range(3):
-        for j in range(3):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(3,6):
-        for j in range(3):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(6,9):
-        for j in range(3):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(3):
-        for j in range(3,6):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(3,6):
-        for j in range(3,6):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(6,9):
-        for j in range(3,6):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(3):
-        for j in range(6,9):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(3,6):
-        for j in range(6,9):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    for i in range(6,9):
-        for j in range(6,9):
-            elementoemlista(listaM,matriz[i][j])
-    listaM = []
-    return
+								return
+			l = []
+					
+	for i in range(9):
+		for j in range(9):
+			elementoemlista(listaM,matriz[i][j])
+                print(l)
+	listaM = []
+	return
+
 listaValidador0 = [] #Cria varias listas para cada linha da matriz
 listaValidador1 = []
 listaValidador2 = []
@@ -79,6 +49,8 @@ listaValidadorC5 = []
 listaValidadorC6 = []
 listaValidadorC7 = []
 listaValidadorC8 = []
+
+listaLinha = []
 
 with open("pls.txt") as f: #Abre o arquivo e se refere ao mesmo como "f"
 	s = f.readlines() #Adiciona a uma lista("s") todas as linhas de texto do documento
