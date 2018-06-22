@@ -1,0 +1,6 @@
+{
+    "cmd": ["start", "cmd", "/k", "PATH do python.exe", "$file"],
+    "selector": "source.python",
+    "shell": true,
+    "working_dir": "$file_dir"
+}
