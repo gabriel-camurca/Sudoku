@@ -1,0 +1,8 @@
+O arquivo Entradas_teste combina com o arquivo de dicas_teste para formar um sudoku já completo.
+Para utilizá-los, basta renomeá-los 'Entradas' e 'dicas' respectivamente.
+Para iniciar o jogo com outras dicas, crie um arquivo .txt com o formato de entrada:
+	X,Y:Z
+onde X é a coluna(de A-I);
+Y é a linha de 1 a 9;
+e Z é o número que se deseja inserir (também de 1 a 9).
+O mesmo vale para o arquivo Entradas.txt, que deve conter as entradas para o modo BATCH.
